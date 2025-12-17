@@ -2,6 +2,7 @@
 
 import { Moon, Sun, Menu, X, Code } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 type Props = {
   darkMode: boolean;
@@ -22,24 +23,32 @@ export default function Navbar({ darkMode, setDarkMode, scrolled }: Props) {
   return (
     <nav
       className={`
-        fixed w-full z-50 h-20
-        transition-colors duration-500
-        backdrop-blur-md
-        ${
-          scrolled
-            ? darkMode
-              ? "bg-gray-900/95 shadow-lg"
-              : "bg-white/95 shadow-lg"
-            : "bg-transparent shadow-transparent"
-        }
-      `}
+  fixed w-full z-50 h-20
+  backdrop-blur-md
+  transition-all duration-500
+  ${
+    darkMode
+      ? scrolled
+        ? "bg-slate-900/95 shadow-lg border-b border-white/10"
+        : "bg-slate-900/80 border-b border-white/5"
+      : scrolled
+      ? "bg-slate-500/90 shadow-lg border-b border-black/10"
+      : "bg-slate-400/75 border-b border-black/5"
+  }
+`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex justify-between items-center h-full">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <Code className="w-6 h-6 text-white" />
+            <div className="relative w-20 h-20">
+              <Image
+                src="/logo1.png"
+                alt="Infyra Logo"
+                fill
+                priority
+                className="object-contain"
+              />
             </div>
             <div>
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
