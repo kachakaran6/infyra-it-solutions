@@ -42,24 +42,42 @@ export default function Contact({ darkMode }: ContactProps) {
     }
   };
 
-  const cardBg = darkMode ? "bg-gray-800" : "bg-white";
+  const cardBg = darkMode ? "bg-gray-900/80" : "bg-white";
 
   return (
-    <section id="contact" className="py-24 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="contact"
+      className={`
+        relative py-32 px-4 overflow-hidden
+        ${
+          darkMode
+            ? "bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950"
+            : "bg-gradient-to-br from-blue-50 via-white to-purple-50"
+        }
+      `}
+    >
+      {/* Soft Background Glow */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-blue-500/10 blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-500/10 blur-[140px]" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <div className="inline-block px-4 py-2 bg-purple-600/10 border border-purple-600/20 rounded-full mb-4">
             <span className="text-purple-600 dark:text-purple-400 font-semibold">
               Contact Us
             </span>
           </div>
+
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
             Let&apos;s Build Something Amazing
           </h2>
+
           <p className="text-xl opacity-80 max-w-3xl mx-auto">
             Ready to transform your business? Get in touch with our expert team
-            today
+            today.
           </p>
         </div>
 
@@ -68,7 +86,7 @@ export default function Contact({ darkMode }: ContactProps) {
           <div className="lg:col-span-2 space-y-8">
             <div
               className={`p-8 rounded-2xl ${cardBg} border ${
-                darkMode ? "border-gray-700" : "border-gray-200"
+                darkMode ? "border-gray-800" : "border-gray-200"
               } shadow-xl`}
             >
               <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
@@ -112,14 +130,13 @@ export default function Contact({ darkMode }: ContactProps) {
           <div className="lg:col-span-3">
             <div
               className={`p-10 rounded-2xl ${cardBg} border ${
-                darkMode ? "border-gray-700" : "border-gray-200"
+                darkMode ? "border-gray-800" : "border-gray-200"
               } shadow-2xl`}
             >
               <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
 
               <div className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  {/* Name */}
                   <InputField
                     label="Full Name *"
                     value={formData.name}
@@ -129,7 +146,6 @@ export default function Contact({ darkMode }: ContactProps) {
                     placeholder="John Doe"
                   />
 
-                  {/* Email */}
                   <InputField
                     label="Email Address *"
                     type="email"
@@ -141,7 +157,6 @@ export default function Contact({ darkMode }: ContactProps) {
                   />
                 </div>
 
-                {/* Company */}
                 <InputField
                   label="Company Name (Optional)"
                   value={formData.company}
@@ -150,7 +165,6 @@ export default function Contact({ darkMode }: ContactProps) {
                   placeholder="Your Company Inc."
                 />
 
-                {/* Message */}
                 <TextareaField
                   label="Project Details *"
                   value={formData.message}
@@ -162,7 +176,7 @@ export default function Contact({ darkMode }: ContactProps) {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-2xl transition-all hover:scale-105 flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
                 >
                   Send Message <ArrowRight className="w-5 h-5" />
                 </button>
@@ -179,7 +193,7 @@ export default function Contact({ darkMode }: ContactProps) {
   );
 }
 
-/* ---------- Small Reusable Parts ---------- */
+/* ---------- Reusable Components ---------- */
 
 function ContactItem({
   icon,

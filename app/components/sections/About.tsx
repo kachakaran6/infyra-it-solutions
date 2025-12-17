@@ -15,14 +15,14 @@ type AboutProps = {
 };
 
 export default function About({ darkMode }: AboutProps) {
-  const cardBg = darkMode ? "bg-gray-800" : "bg-white";
-  const sectionBg = darkMode ? "bg-gray-800" : "bg-gray-50";
+  const sectionBg = darkMode ? "bg-slate-950" : "bg-slate-100";
+  const cardBg = darkMode ? "bg-gray-900" : "bg-white";
 
   return (
-    <section id="about" className={`py-24 px-4 ${sectionBg}`}>
+    <section id="about" className={`relative py-28 px-4 ${sectionBg}`}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <div className="inline-block px-4 py-2 bg-blue-600/10 border border-blue-600/20 rounded-full mb-4">
             <span className="text-blue-600 dark:text-blue-400 font-semibold">
               About Us
@@ -35,17 +35,17 @@ export default function About({ darkMode }: AboutProps) {
 
           <p className="text-xl opacity-80 max-w-3xl mx-auto">
             We&apos;re not just developers—we&apos;re digital architects
-            crafting the future of business technology
+            crafting the future of business technology.
           </p>
         </div>
 
         {/* Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Mission & Vision */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div
-              className={`p-8 rounded-2xl ${cardBg} shadow-xl border ${
-                darkMode ? "border-gray-700" : "border-gray-200"
+              className={`p-8 rounded-2xl ${cardBg} shadow-lg border ${
+                darkMode ? "border-gray-800" : "border-gray-200"
               }`}
             >
               <Globe className="w-12 h-12 text-blue-600 mb-4" />
@@ -58,8 +58,8 @@ export default function About({ darkMode }: AboutProps) {
             </div>
 
             <div
-              className={`p-8 rounded-2xl ${cardBg} shadow-xl border ${
-                darkMode ? "border-gray-700" : "border-gray-200"
+              className={`p-8 rounded-2xl ${cardBg} shadow-lg border ${
+                darkMode ? "border-gray-800" : "border-gray-200"
               }`}
             >
               <Star className="w-12 h-12 text-purple-600 mb-4" />
@@ -74,15 +74,15 @@ export default function About({ darkMode }: AboutProps) {
 
           {/* Why Companies Choose Us */}
           <div
-            className={`p-10 rounded-2xl ${cardBg} shadow-2xl border ${
-              darkMode ? "border-gray-700" : "border-gray-200"
+            className={`p-10 rounded-2xl ${cardBg} shadow-xl border ${
+              darkMode ? "border-gray-800" : "border-gray-200"
             }`}
           >
             <h3 className="text-3xl font-bold mb-8 text-center">
               Why Top Companies Choose Us
             </h3>
 
-            <div className="space-y-5">
+            <div className="space-y-4">
               {[
                 {
                   icon: <Briefcase className="w-6 h-6" />,

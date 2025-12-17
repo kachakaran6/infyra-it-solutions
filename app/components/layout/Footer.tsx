@@ -1,7 +1,7 @@
 "use client";
 
 import { Code, Linkedin, Twitter, Github, ArrowRight } from "lucide-react";
-
+import Image from "next/image";
 type FooterProps = {
   darkMode: boolean;
 };
@@ -21,8 +21,14 @@ export default function Footer({ darkMode }: FooterProps) {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <Code className="w-6 h-6 text-white" />
+              <div className="relative w-20 h-20">
+                <Image
+                  src="/logo1.png"
+                  alt="Infyra Logo"
+                  fill
+                  priority
+                  className="object-contain"
+                />
               </div>
               <div>
                 <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">

@@ -42,21 +42,24 @@ const whyChooseUs: WhyChooseUsItem[] = [
 ];
 
 export default function WhyChooseUs({ darkMode }: WhyChooseUsProps) {
-  const cardBg = darkMode ? "bg-gray-800" : "bg-white";
+  const sectionBg = darkMode ? "bg-gray-950" : "bg-slate-100";
+  const cardBg = darkMode ? "bg-gray-900" : "bg-white";
 
   return (
-    <section id="why-us" className="py-24 px-4">
+    <section id="why-us" className={`relative py-28 px-4 ${sectionBg}`}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <div className="inline-block px-4 py-2 bg-purple-600/10 border border-purple-600/20 rounded-full mb-4">
             <span className="text-purple-600 dark:text-purple-400 font-semibold">
               Why Choose Us
             </span>
           </div>
+
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
             The Infyra Advantage
           </h2>
+
           <p className="text-xl opacity-80 max-w-3xl mx-auto">
             Industry-leading expertise backed by proven results
           </p>
@@ -67,15 +70,22 @@ export default function WhyChooseUs({ darkMode }: WhyChooseUsProps) {
           {whyChooseUs.map((item, i) => (
             <div
               key={i}
-              className={`group p-8 rounded-2xl ${cardBg} border ${
-                darkMode ? "border-gray-700" : "border-gray-200"
-              } hover:shadow-2xl transition-all hover:-translate-y-2 text-center`}
+              className={`
+                group p-8 rounded-2xl ${cardBg}
+                border ${darkMode ? "border-gray-800" : "border-gray-200"}
+                shadow-lg
+                hover:shadow-2xl
+                transition-all duration-300
+                hover:-translate-y-2
+                text-center
+              `}
             >
-              <div className="inline-block p-5 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl text-white mb-6 group-hover:scale-110 transition-transform">
+              <div className="inline-flex items-center justify-center p-5 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl text-white mb-6 group-hover:scale-110 transition-transform">
                 {item.icon}
               </div>
 
               <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+
               <p className="opacity-80 mb-4">{item.desc}</p>
 
               <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">

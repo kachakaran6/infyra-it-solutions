@@ -35,22 +35,24 @@ const testimonials: Testimonial[] = [
 ];
 
 export default function Testimonials({ darkMode }: TestimonialsProps) {
-  const cardBg = darkMode ? "bg-gray-800" : "bg-white";
-  const sectionBg = darkMode ? "bg-gray-800" : "bg-gray-50";
+  const sectionBg = darkMode ? "bg-gray-900" : "bg-white";
+  const cardBg = darkMode ? "bg-gray-900/70" : "bg-slate-50";
 
   return (
-    <section id="testimonials" className={`py-24 px-4 ${sectionBg}`}>
+    <section id="testimonials" className={`relative py-28 px-4 ${sectionBg}`}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <div className="inline-block px-4 py-2 bg-blue-600/10 border border-blue-600/20 rounded-full mb-4">
             <span className="text-blue-600 dark:text-blue-400 font-semibold">
               Testimonials
             </span>
           </div>
+
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
             What Our Clients Say
           </h2>
+
           <p className="text-xl opacity-80 max-w-3xl mx-auto">
             Don&apos;t just take our word for it—hear from industry leaders
           </p>
@@ -61,9 +63,14 @@ export default function Testimonials({ darkMode }: TestimonialsProps) {
           {testimonials.map((testimonial, i) => (
             <div
               key={i}
-              className={`p-8 rounded-2xl ${cardBg} border ${
-                darkMode ? "border-gray-700" : "border-gray-200"
-              } shadow-xl hover:shadow-2xl transition-all`}
+              className={`
+                p-8 rounded-2xl ${cardBg}
+                border ${darkMode ? "border-gray-800" : "border-gray-200"}
+                shadow-lg
+                hover:shadow-2xl
+                transition-all duration-300
+                hover:-translate-y-1
+              `}
             >
               {/* Stars */}
               <div className="flex gap-1 mb-4">
@@ -76,8 +83,8 @@ export default function Testimonials({ darkMode }: TestimonialsProps) {
               </div>
 
               {/* Quote */}
-              <p className="text-lg mb-6 italic leading-relaxed">
-                &quot;{testimonial.text}&quot;
+              <p className="text-lg mb-6 italic leading-relaxed opacity-90">
+                “{testimonial.text}”
               </p>
 
               {/* Author */}
