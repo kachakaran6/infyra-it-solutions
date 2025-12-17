@@ -244,7 +244,7 @@ const Home = () => {
     }
   };
 
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMobileMenuOpen(false);
   };
@@ -470,8 +470,8 @@ const Home = () => {
               Transforming Ideas Into Reality
             </h2>
             <p className="text-xl opacity-80 max-w-3xl mx-auto">
-              We're not just developers—we're digital architects crafting the
-              future of business technology
+              We&apos;re not just developers—we&apos;re digital architects
+              crafting the future of business technology
             </p>
           </div>
 
@@ -501,7 +501,7 @@ const Home = () => {
                 <p className="text-lg opacity-90 leading-relaxed">
                   To be the global leader in IT innovation, recognized for
                   transformative solutions that shape how businesses operate in
-                  tomorrow's digital landscape.
+                  tomorrow&apos;s digital landscape.
                 </p>
               </div>
             </div>
@@ -708,7 +708,7 @@ const Home = () => {
               What Our Clients Say
             </h2>
             <p className="text-xl opacity-80 max-w-3xl mx-auto">
-              Don't just take our word for it—hear from industry leaders
+              Don&apos;t just take our word for it—hear from industry leaders
             </p>
           </div>
 
@@ -729,7 +729,7 @@ const Home = () => {
                   ))}
                 </div>
                 <p className="text-lg mb-6 italic leading-relaxed">
-                  "{testimonial.text}"
+                  {testimonial.text}
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
@@ -756,7 +756,7 @@ const Home = () => {
               </span>
             </div>
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Let's Build Something Amazing
+              Let&apos;s Build Something Amazing
             </h2>
             <p className="text-xl opacity-80 max-w-3xl mx-auto">
               Ready to transform your business? Get in touch with our expert
@@ -905,7 +905,7 @@ const Home = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
-                      rows="6"
+                      rows={6}
                       placeholder="Tell us about your project, requirements, timeline, and budget..."
                       className={`w-full p-4 rounded-xl border ${
                         formErrors.message
@@ -928,7 +928,7 @@ const Home = () => {
                     Send Message <ArrowRight className="w-5 h-5" />
                   </button>
                   <p className="text-sm opacity-60 text-center">
-                    We'll get back to you within 24 hours
+                    We&apos;ll get back to you within 24 hours
                   </p>
                 </div>
               </div>
