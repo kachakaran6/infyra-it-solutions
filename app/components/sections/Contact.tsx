@@ -95,32 +95,30 @@ export default function Contact({ darkMode }: ContactProps) {
                 <ContactItem
                   icon={<Mail className="w-6 h-6 text-blue-600" />}
                   title="Email"
-                  lines={["contact@infyra.com", "sales@infyra.com"]}
+                  lines={["info@infyra.it.com"]}
                 />
 
                 <ContactItem
                   icon={<Phone className="w-6 h-6 text-blue-600" />}
                   title="Phone"
-                  lines={["+1 (555) 123-4567", "+1 (555) 987-6543"]}
+                  lines={["+91 93283 77900", "+91 63518 50838"]}
                 />
 
                 <ContactItem
                   icon={<MapPin className="w-6 h-6 text-blue-600" />}
-                  title="Headquarters"
+                  title="Office"
                   lines={[
-                    "123 Tech Boulevard",
-                    "Silicon Valley, CA 94025",
-                    "United States",
+                    "Orion Building, 3rd Floor",
+                    "Street No. 3, Gulab Vihar Society",
+                    "Near Rangani Hospital, 150ft Ring Road",
+                    "Rajkot, Gujarat, India",
                   ]}
                 />
 
                 <ContactItem
                   icon={<Clock className="w-6 h-6 text-blue-600" />}
                   title="Business Hours"
-                  lines={[
-                    "Mon - Fri: 9:00 AM - 6:00 PM",
-                    "24/7 Emergency Support",
-                  ]}
+                  lines={["Mon - Sat: 9:00 AM - 7:00 PM", "Sunday: Closed"]}
                 />
               </div>
             </div>
@@ -143,7 +141,7 @@ export default function Contact({ darkMode }: ContactProps) {
                     onChange={(v) => setFormData({ ...formData, name: v })}
                     error={formErrors.name}
                     darkMode={darkMode}
-                    placeholder="John Doe"
+                    placeholder="Ajay Sharma"
                   />
 
                   <InputField
@@ -153,7 +151,7 @@ export default function Contact({ darkMode }: ContactProps) {
                     onChange={(v) => setFormData({ ...formData, email: v })}
                     error={formErrors.email}
                     darkMode={darkMode}
-                    placeholder="john@company.com"
+                    placeholder="ajay@gmail.com"
                   />
                 </div>
 

@@ -43,7 +43,7 @@ export default function Footer({ darkMode }: FooterProps) {
               and digital excellence.
             </p>
 
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               <a
                 href="#"
                 className="p-3 bg-gray-800 hover:bg-blue-600 rounded-lg transition-colors"
@@ -65,7 +65,7 @@ export default function Footer({ darkMode }: FooterProps) {
               >
                 <Github className="w-5 h-5" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Company */}
@@ -76,8 +76,8 @@ export default function Footer({ darkMode }: FooterProps) {
                 "About Us",
                 "Services",
                 "Technologies",
-                "Careers",
-                "Blog",
+                // "Careers",
+                // "Blog",
                 "Contact",
               ].map((link) => (
                 <li key={link}>

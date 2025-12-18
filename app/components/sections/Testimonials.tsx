@@ -15,21 +15,27 @@ type TestimonialsProps = {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Sarah Johnson",
-    role: "CTO, TechCorp",
-    text: "Infyra transformed our entire digital infrastructure. Their expertise and dedication are unmatched.",
+    name: "Aisha",
+    role: "Founder, TrustTracker",
+    text: "Infyra built TrustTracker with exceptional attention to detail. The expense tracking system is advanced, fast, and incredibly user-friendly. Exactly what I envisioned and more.",
     rating: 5,
   },
   {
-    name: "Michael Chen",
-    role: "CEO, InnovateLabs",
-    text: "Outstanding service! They delivered our complex project ahead of schedule with exceptional quality.",
+    name: "Chandresh",
+    role: "Owner, ACK Construction",
+    text: "They delivered a beautiful and professional landing page that perfectly represents our construction and renovation business. The design and performance are top-notch.",
     rating: 5,
   },
   {
-    name: "Emily Rodriguez",
-    role: "Director, GlobalFinance",
-    text: "The automation solutions saved us 60% in operational costs. Highly recommend!",
+    name: "Divyaraj",
+    role: "Founder, Sonal Krupa Tours & Travels",
+    text: "Infyra created an elegant and smooth website for our travel agency. It showcases our services perfectly and has helped us attract more customers online.",
+    rating: 5,
+  },
+  {
+    name: "Keyur",
+    role: "Photographer, Ankush Photography",
+    text: "The portfolio website is unique, visually stunning, and truly reflects my photography style. Infyra exceeded my expectations with creativity and execution.",
     rating: 5,
   },
 ];
@@ -59,7 +65,7 @@ export default function Testimonials({ darkMode }: TestimonialsProps) {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, i) => (
             <div
               key={i}
