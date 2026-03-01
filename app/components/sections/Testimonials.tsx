@@ -1,19 +1,8 @@
 "use client";
 
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
-type Testimonial = {
-  name: string;
-  role: string;
-  text: string;
-  rating: number;
-};
-
-type TestimonialsProps = {
-  darkMode: boolean;
-};
-
-const testimonials: Testimonial[] = [
+const testimonials = [
   {
     name: "Aisha",
     role: "Founder, TrustTracker",
@@ -40,67 +29,48 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-export default function Testimonials({ darkMode }: TestimonialsProps) {
-  const sectionBg = darkMode ? "bg-gray-900" : "bg-white";
-  const cardBg = darkMode ? "bg-gray-900/70" : "bg-slate-50";
-
+export default function Testimonials({ darkMode }: { darkMode: boolean }) {
   return (
-    <section id="testimonials" className={`relative py-28 px-4 ${sectionBg}`}>
+    <section id="testimonials" className="py-24 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-blue-600/10 border border-blue-600/20 rounded-full mb-4">
-            <span className="text-blue-600 dark:text-blue-400 font-semibold">
-              Testimonials
-            </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-primary/20 text-xs font-bold text-primary uppercase tracking-widest mb-6">
+            Social Proof
           </div>
-
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            What Our Clients Say
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+            The <span className="italic font-display opacity-40">Voice</span> of our Clients.
           </h2>
-
-          <p className="text-xl opacity-80 max-w-3xl mx-auto">
-            Don&apos;t just take our word for it—hear from industry leaders
-          </p>
         </div>
 
-        {/* Cards */}
         <div className="grid md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, i) => (
+          {testimonials.map((item, i) => (
             <div
               key={i}
-              className={`
-                p-8 rounded-2xl ${cardBg}
-                border ${darkMode ? "border-gray-800" : "border-gray-200"}
-                shadow-lg
-                hover:shadow-2xl
-                transition-all duration-300
-                hover:-translate-y-1
-              `}
+              className="group relative p-10 rounded-[32px] glass border border-primary/5 hover:border-primary/20 transition-all duration-500 overflow-hidden"
             >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, idx) => (
-                  <Star
-                    key={idx}
-                    className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                  />
-                ))}
-              </div>
+              <Quote className="absolute -top-4 -right-4 w-24 h-24 text-primary/5 group-hover:text-primary/10 transition-colors rotate-12" />
 
-              {/* Quote */}
-              <p className="text-lg mb-6 italic leading-relaxed opacity-90">
-                “{testimonial.text}”
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                  {testimonial.name.charAt(0)}
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex gap-1 mb-6">
+                  {[...Array(item.rating)].map((_, idx) => (
+                    <Star key={idx} className="w-4 h-4 fill-primary text-primary" />
+                  ))}
                 </div>
-                <div>
-                  <div className="font-bold">{testimonial.name}</div>
-                  <div className="text-sm opacity-60">{testimonial.role}</div>
+
+                <p className="text-xl md:text-2xl font-medium leading-relaxed mb-8 opacity-80 italic">
+                  "{item.text}"
+                </p>
+
+                <div className="flex items-center gap-4 mt-auto">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary p-[1px]">
+                    <div className="w-full h-full rounded-[15px] bg-background flex items-center justify-center font-bold text-xl text-primary font-display">
+                      {item.name.charAt(0)}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-bold text-lg">{item.name}</div>
+                    <div className="text-sm opacity-60 font-medium tracking-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px]">{item.role}</div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -37,7 +37,7 @@ export default function HomeClient() {
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-900 ease-in-out ${theme}`}
+      className={`min-h-screen transition-colors duration-700 ease-in-out ${darkMode ? "dark bg-background text-foreground" : "bg-background text-foreground"}`}
     >
       <Navbar
         darkMode={darkMode}

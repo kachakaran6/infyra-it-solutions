@@ -8,117 +8,109 @@ import {
   Users,
   Shield,
   Clock,
+  ArrowUpRight
 } from "lucide-react";
 
-type AboutProps = {
-  darkMode: boolean;
-};
-
-export default function About({ darkMode }: AboutProps) {
-  const sectionBg = darkMode ? "bg-slate-950" : "bg-slate-100";
-  const cardBg = darkMode ? "bg-gray-900" : "bg-white";
-
+export default function About({ darkMode }: { darkMode: boolean }) {
   return (
-    <section id="about" className={`relative py-28 px-4 ${sectionBg}`}>
+    <section id="about" className="py-24 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-blue-600/10 border border-blue-600/20 rounded-full mb-4">
-            <span className="text-blue-600 dark:text-blue-400 font-semibold">
-              About Us
-            </span>
-          </div>
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
 
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            Transforming Ideas Into Reality
-          </h2>
+          {/* Visual Side */}
+          <div className="relative order-2 lg:order-1">
+            <div className="relative z-10 glass rounded-[40px] p-8 md:p-12 border border-primary/10 overflow-hidden group">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-accent"></div>
 
-          <p className="text-xl opacity-80 max-w-3xl mx-auto">
-            We&apos;re not just developers—we&apos;re digital architects
-            crafting the future of business technology.
-          </p>
-        </div>
+              <h3 className="text-3xl md:text-4xl font-bold mb-8 leading-tight text-foreground">
+                Architecting the <span className="text-gradient">Digital Edge</span> of your business.
+              </h3>
 
-        {/* Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Mission & Vision */}
-          <div className="space-y-8">
-            <div
-              className={`p-8 rounded-2xl ${cardBg} shadow-lg border ${
-                darkMode ? "border-gray-800" : "border-gray-200"
-              }`}
-            >
-              <Globe className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-2xl font-bold mb-3">Our Mission</h3>
-              <p className="text-lg opacity-90 leading-relaxed">
-                To empower businesses worldwide through cutting-edge technology
-                solutions that drive innovation, efficiency, and sustainable
-                growth in the digital era.
-              </p>
-            </div>
+              <div className="space-y-6">
+                <p className="text-lg opacity-70 leading-relaxed text-foreground">
+                  Founded on the principles of excellence and innovation, Infyra has grown into a global powerhouse in IT consulting and digital transformation.
+                </p>
+                <p className="text-lg opacity-70 leading-relaxed text-foreground">
+                  We don't just build software; we build the future infrastructure of enterprise success.
+                </p>
+              </div>
 
-            <div
-              className={`p-8 rounded-2xl ${cardBg} shadow-lg border ${
-                darkMode ? "border-gray-800" : "border-gray-200"
-              }`}
-            >
-              <Star className="w-12 h-12 text-purple-600 mb-4" />
-              <h3 className="text-2xl font-bold mb-3">Our Vision</h3>
-              <p className="text-lg opacity-90 leading-relaxed">
-                To be the global leader in IT innovation, recognized for
-                transformative solutions that shape how businesses operate in
-                tomorrow&apos;s digital landscape.
-              </p>
-            </div>
-          </div>
-
-          {/* Why Companies Choose Us */}
-          <div
-            className={`p-10 rounded-2xl ${cardBg} shadow-xl border ${
-              darkMode ? "border-gray-800" : "border-gray-200"
-            }`}
-          >
-            <h3 className="text-3xl font-bold mb-8 text-center">
-              Why Top Companies Choose Us
-            </h3>
-
-            <div className="space-y-4">
-              {[
-                {
-                  icon: <Briefcase className="w-6 h-6" />,
-                  text: "10+ Years Industry Leadership",
-                },
-                {
-                  icon: <Award className="w-6 h-6" />,
-                  text: "ISO 9001 & ISO 27001 Certified",
-                },
-                {
-                  icon: <Users className="w-6 h-6" />,
-                  text: "150+ Enterprise Clients Worldwide",
-                },
-                {
-                  icon: <Star className="w-6 h-6" />,
-                  text: "98% Client Retention Rate",
-                },
-                {
-                  icon: <Shield className="w-6 h-6" />,
-                  text: "Microsoft & AWS Certified Partners",
-                },
-                {
-                  icon: <Clock className="w-6 h-6" />,
-                  text: "24/7 Dedicated Support Team",
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-blue-600/5 transition-colors"
-                >
-                  <div className="text-blue-600 flex-shrink-0">{item.icon}</div>
-                  <span className="text-lg font-medium">{item.text}</span>
+              <div className="grid grid-cols-2 gap-6 mt-12">
+                <div className="p-6 rounded-3xl glass border border-foreground/5 group-hover:border-primary/20 transition-colors">
+                  <div className="text-3xl font-bold text-primary mb-1">10+</div>
+                  <div className="text-xs uppercase tracking-widest opacity-50 font-bold text-foreground">Years of Excellence</div>
                 </div>
-              ))}
+                <div className="p-6 rounded-3xl glass border border-foreground/5 group-hover:border-secondary/20 transition-colors">
+                  <div className="text-3xl font-bold text-secondary mb-1">150+</div>
+                  <div className="text-xs uppercase tracking-widest opacity-50 font-bold text-foreground">Global Clients</div>
+                </div>
+              </div>
+
+              <button className="mt-10 flex items-center gap-2 text-primary font-bold group/btn">
+                Read Our Story
+                <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+              </button>
+            </div>
+
+            {/* Decorative Background Elements */}
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
+            <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-secondary/20 rounded-full blur-3xl -z-10 animate-pulse delay-700"></div>
+          </div>
+
+          {/* Text/Content Side */}
+          <div className="order-1 lg:order-2 space-y-12">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-primary/20 text-xs font-bold text-primary uppercase tracking-widest mb-6">
+                Our Identity
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold mb-8">
+                Transforming <span className="opacity-40 italic font-display">Ideas</span> Into Reality.
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-8">
+              <div className="space-y-4 group">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                  <Globe className="w-6 h-6" />
+                </div>
+                <h4 className="text-xl font-bold">Global Mission</h4>
+                <p className="text-sm opacity-60 leading-relaxed">
+                  Empowering businesses worldwide through cutting-edge technology that drives efficiency.
+                </p>
+              </div>
+
+              <div className="space-y-4 group">
+                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
+                  <Award className="w-6 h-6" />
+                </div>
+                <h4 className="text-xl font-bold">Quality Vision</h4>
+                <p className="text-sm opacity-60 leading-relaxed">
+                  Being the recognized leader in IT innovation, shaping tomorrow's digital landscape.
+                </p>
+              </div>
+
+              <div className="space-y-4 group">
+                <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <h4 className="text-xl font-bold">Secured Logic</h4>
+                <p className="text-sm opacity-60 leading-relaxed">
+                  Enterprise-grade security built into every line of code we ship.
+                </p>
+              </div>
+
+              <div className="space-y-4 group">
+                <div className="w-12 h-12 rounded-2xl bg-blue-400/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-400 group-hover:text-white transition-all duration-500">
+                  <Users className="w-6 h-6" />
+                </div>
+                <h4 className="text-xl font-bold">Expert Team</h4>
+                <p className="text-sm opacity-60 leading-relaxed">
+                  A elite squad of developers and designers with decades of experience.
+                </p>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

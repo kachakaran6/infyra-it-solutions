@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun, Menu, X, Code } from "lucide-react";
+import { Moon, Sun, Menu, X, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -23,101 +23,80 @@ export default function Navbar({ darkMode, setDarkMode, scrolled }: Props) {
   return (
     <nav
       className={`
-  fixed w-full z-50 h-20
-  backdrop-blur-md
-  transition-all duration-500
-  ${
-    darkMode
-      ? scrolled
-        ? "bg-slate-900/95 shadow-lg border-b border-white/10"
-        : "bg-slate-900/80 border-b border-white/5"
-      : scrolled
-      ? "bg-slate-500/90 shadow-lg border-b border-black/10"
-      : "bg-slate-400/75 border-b border-black/5"
-  }
-`}
+        fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${scrolled ? "py-4" : "py-6"}
+      `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="flex justify-between items-center h-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          className={`
+            glass rounded-2xl flex justify-between items-center h-16 px-6 
+            transition-all duration-300
+            ${scrolled ? "shadow-2xl" : "shadow-sm border-transparent"}
+          `}
+        >
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="relative w-20 h-20">
+          <div
+            className="flex items-center gap-3 cursor-pointer group"
+            onClick={() => scrollToSection("home")}
+          >
+            <div className="relative w-10 h-10 group-hover:scale-110 transition-transform">
               <Image
-                src="/logo1.png"
+                src="/icon1.png"
                 alt="Infyra Logo"
                 fill
-                priority
                 className="object-contain"
+                priority
               />
             </div>
-            <div>
-              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <div className="hidden sm:block">
+              <div className="text-xl font-display font-bold tracking-tight">
                 Infyra
               </div>
-              <div className="text-xs opacity-60">IT Solutions</div>
             </div>
           </div>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex space-x-8 items-center">
+          <div className="hidden md:flex items-center gap-8">
             {[
-              "home",
               "about",
               "services",
               "technologies",
-              "testimonials",
               "contact",
             ].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="hover:text-blue-600 transition-colors font-medium capitalize"
+                className="text-sm font-medium capitalize opacity-60 hover:opacity-100 hover:text-primary transition-all relative group"
               >
-                {item === "home" ? "Home" : item.replace("-", " ")}
+                {item.replace("-", " ")}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full"></span>
               </button>
             ))}
-
-            {/* Theme toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              {darkMode ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </button>
-
-            {/* CTA — NO transition-all */}
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="
-                px-6 py-2 rounded-lg font-semibold text-white
-                bg-gradient-to-r from-blue-600 to-purple-600
-                transition-shadow duration-300
-                hover:shadow-lg
-              "
-            >
-              Get Started
-            </button>
           </div>
 
-          {/* Mobile */}
-          <div className="lg:hidden flex items-center space-x-2">
-            <button onClick={toggleDarkMode} className="p-2">
-              {darkMode ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-xl glass hover:bg-primary/5 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {darkMode ? <Sun className="w-4 h-4 text-yellow-500" /> : <Moon className="w-4 h-4 text-primary" />}
             </button>
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="hidden sm:flex items-center gap-2 px-5 py-2 bg-primary text-white rounded-xl text-sm font-bold hover:shadow-[0_8px_30px_rgba(37,99,235,0.4)] transition-all hover:scale-[1.02]"
+            >
+              Let's Talk
+              <ArrowUpRight className="w-4 h-4" />
+            </button>
+
+            <button
+              className="md:hidden p-2 opacity-70 hover:opacity-100"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -125,30 +104,24 @@ export default function Navbar({ darkMode, setDarkMode, scrolled }: Props) {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div
-          className={`
-            lg:hidden
-            transition-colors duration-300
-            ${darkMode ? "bg-gray-800" : "bg-white"}
-            border-t ${darkMode ? "border-gray-700" : "border-gray-200"}
-          `}
-        >
-          {[
-            "home",
-            "about",
-            "services",
-            "technologies",
-            "testimonials",
-            "contact",
-          ].map((item) => (
+        <div className="px-4 pt-2 md:hidden">
+          <div className="glass rounded-2xl p-6 space-y-4 shadow-2xl animate-in slide-in-from-top-4 duration-300">
+            {["home", "about", "services", "technologies", "contact"].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item)}
+                className="block w-full text-left text-lg font-medium capitalize py-2 border-b border-foreground/5 last:border-0 opacity-70 hover:opacity-100"
+              >
+                {item.replace("-", " ")}
+              </button>
+            ))}
             <button
-              key={item}
-              onClick={() => scrollToSection(item)}
-              className="block w-full px-6 py-4 text-left font-medium capitalize hover:bg-gray-100 dark:hover:bg-gray-700"
+              onClick={() => scrollToSection("contact")}
+              className="w-full py-4 bg-primary text-white rounded-xl font-bold"
             >
-              {item === "home" ? "Home" : item.replace("-", " ")}
+              Get Started
             </button>
-          ))}
+          </div>
         </div>
       )}
     </nav>
